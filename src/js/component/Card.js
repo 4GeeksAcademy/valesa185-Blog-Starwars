@@ -1,7 +1,8 @@
 import React from "react";
 
 const Card = ({ character }) => {
-  const { id, name, image, description } = character;
+  const { id, name, image, description1, description2, description3 } =
+    character;
 
   return (
     <div className="card" style={{ width: "15rem" }}>
@@ -13,8 +14,9 @@ const Card = ({ character }) => {
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <p className="card-text">{description}</p>
-
+        <p className="card-text">
+          {description1} <br /> {description2} <br /> {description3}
+        </p>
         <button type="button" className="btn btn-secondary me-2">
           Learn more!
         </button>

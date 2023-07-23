@@ -8,13 +8,28 @@ const CharacterList = () => {
     fetch("https://www.swapi.tech/api/people/")
       .then((response) => response.json())
       .then((data) => {
-        const charactersData = data.results.map((result) => ({
-          id: result.uid,
-          name: result.name,
-          image: `https://starwars-visualguide.com/assets/img/characters/${result.uid}.jpg`,
-          description: `Altura: ${result.properties}`,
-        }));
-        setCharacters(charactersData);
+        const characterURLs = data.results.map((result) => result.url);
+
+        // Hacemos un nuevo fetch con todas las URLs de los personajes
+        Promise.all(
+          characterURLs.map((url) =>
+            fetch(url).then((response) => response.json())
+          )
+        )
+          .then((charactersData) => {
+            // Procesamos la respuesta para obtener los datos que necesitamos
+            const characterDetails = charactersData.map((data) => ({
+              id: data.result.uid,
+              name: data.result.properties.name,
+              image: `https://starwars-visualguide.com/assets/img/characters/${data.result.uid}.jpg`,
+              description1: `Height: ${data.result.properties.height} cm`,
+              description2: `Mass: ${data.result.properties.mass} kg`,
+              description3: `Eye color: ${data.result.properties.eye_color} `,
+            }));
+
+            setCharacters(characterDetails);
+          })
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   }, []);

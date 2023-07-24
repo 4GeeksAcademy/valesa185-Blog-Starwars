@@ -16,6 +16,8 @@ const InfoCard = () => {
           description1: `Height: ${data.result.properties.height} cm`,
           description2: `Mass: ${data.result.properties.mass} kg`,
           description3: `Eye color: ${data.result.properties.eye_color}`,
+          description4: `Hair color: ${data.result.properties.hair_color}`,
+          description5: `Gender: ${data.result.properties.gender}`,
         };
         setCharacter(characterData);
       })
@@ -26,16 +28,38 @@ const InfoCard = () => {
     return <h1>Loading...</h1>;
   }
 
-  const { name, image, description1, description2, description3 } = character;
+  const {
+    name,
+    image,
+    description1,
+    description2,
+    description3,
+    description4,
+    description5,
+  } = character;
 
   return (
-    <div className="info-card">
-      <img src={image} alt={name} style={{ height: "14rem" }} />
-      <div>
-        <h2>{name}</h2>
-        <p>{description1}</p>
-        <p>{description2}</p>
-        <p>{description3}</p>
+    <div className="card ms-4 mb-3" style={{ width: "50%", height: "50%" }}>
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={image} class="img-fluid rounded-start" alt="..." />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h2 className="card-title">{name}</h2>
+            <h4 className="card-title">Information about:</h4>
+            <p classname="card-text">
+              {description1} <br /> {description2} <br /> {description3} <br />
+              {description4} <br />
+              {description5}
+            </p>
+            <p className="card-text">
+              <small className="text-muted">
+                A character within the Star Wars universe.
+              </small>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

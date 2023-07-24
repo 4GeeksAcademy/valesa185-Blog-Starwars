@@ -10,14 +10,14 @@ const CharacterList = () => {
       .then((data) => {
         const characterURLs = data.results.map((result) => result.url);
 
-        // Hacemos un nuevo fetch con todas las URLs de los personajes
+        // Nuevo fetch con todas las URLs de los personajes
         Promise.all(
           characterURLs.map((url) =>
             fetch(url).then((response) => response.json())
           )
         )
           .then((charactersData) => {
-            // Procesamos la respuesta para obtener los datos que necesitamos
+            // Procesar los datos
             const characterDetails = charactersData.map((data) => ({
               id: data.result.uid,
               name: data.result.properties.name,

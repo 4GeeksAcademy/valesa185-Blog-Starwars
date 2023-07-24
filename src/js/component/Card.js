@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ character }) => {
   const { id, name, image, description1, description2, description3 } =
@@ -17,9 +18,14 @@ const Card = ({ character }) => {
         <p className="card-text">
           {description1} <br /> {description2} <br /> {description3}
         </p>
-        <button type="button" className="btn btn-secondary me-2">
-          Learn more!
-        </button>
+
+        {/* Uso de los parametros de la URL para pasar el ID de cada personaje */}
+        <Link to={`/info/${id}`}>
+          <button type="button" className="btn btn-secondary me-2">
+            Learn more!
+          </button>
+        </Link>
+
         <button type="button" className="btn btn-warning">
           Favorite
         </button>

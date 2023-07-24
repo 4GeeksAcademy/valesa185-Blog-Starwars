@@ -1,4 +1,3 @@
-/* Adjust the width of the characterList container to fit all cards in a row */
 .characterList {
   display: flex;
   flex-wrap: nowrap;
@@ -11,7 +10,7 @@
 
 /* Adjust the width of each card to create spacing between them */
 .characterList .card {
-  flex: 0 0 18rem; /* Set a fixed width for each card */
+  flex: 0 0 18rem;
   margin-right: 15px; /* Add some spacing between the cards */
 }
 
@@ -20,7 +19,7 @@
   display: none;
 }
 
-/* Optional: Add hover effect on cards */
+/* Add hover effect on cards */
 .characterList .card:hover {
   transform: scale(1.1); /* Add a scaling effect on hover */
 }

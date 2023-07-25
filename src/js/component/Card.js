@@ -6,10 +6,12 @@ const Card = ({ character }) => {
   const { id, name, image, description1, description2, description3 } =
     character;
 
-  const { addToFavorites } = useCharacterContext();
+  const { addToFavorites, favorites } = useCharacterContext();
+
+  const isFavorite = favorites.includes(name); // Check if the character is in the favorites list
 
   const handleAddToFavorites = () => {
-    addToFavorites(name); // Add the character's name to the favorites list
+    addToFavorites(name); // Add or remove the character's name to/from the favorites list
   };
 
   return (
@@ -34,10 +36,10 @@ const Card = ({ character }) => {
 
         <button
           type="button"
-          className="btn btn-warning"
+          className={`btn ${isFavorite ? "btn-danger" : "btn-warning"}`}
           onClick={handleAddToFavorites}
         >
-          ♡
+          {isFavorite ? "♥" : "♡"}
         </button>
       </div>
     </div>

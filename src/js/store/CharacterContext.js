@@ -12,6 +12,10 @@ const CharacterProvider = ({ children }) => {
     }
   };
 
+  const removeFromFavorites = (characterName) => {
+    setFavorites(favorites.filter((name) => name !== characterName));
+  };
+
   return (
     <CharacterContext.Provider
       value={{
@@ -19,6 +23,7 @@ const CharacterProvider = ({ children }) => {
         setSelectedCharacterName,
         favorites,
         addToFavorites,
+        removeFromFavorites, 
       }}
     >
       {children}

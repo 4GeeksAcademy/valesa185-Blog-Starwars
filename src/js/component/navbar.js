@@ -3,20 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Navbar = ({ favorites }) => {
   return (
-    // Imagen logo Star wars
     <nav className="navbar navbar-dark bg-dark mb-3">
-      <Link to="/">
-        <img
-          className="ms-4"
-          style={{ width: "70px", height: "70px" }}
-          src="https://pngimg.com/d/star_wars_logo_PNG34.png"
-          alt="Star Wars logo"
-        />
-      </Link>
-
       {/** Dropdown lista de Favoritos */}
 
-      <div className="me-3">
+      <div className="ms-3">
         <div className="dropdown">
           <button
             className="btn btn-warning dropdown-toggle"
@@ -25,7 +15,7 @@ export const Navbar = ({ favorites }) => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Favorites
+            Favorites {favorites.length}
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             {favorites && favorites.length > 0 ? (
@@ -46,6 +36,17 @@ export const Navbar = ({ favorites }) => {
           </ul>
         </div>
       </div>
+
+      {/**Imagen logo Star wars */}
+
+      <Link to="/">
+        <img
+          className="me-4"
+          style={{ width: "70px", height: "70px" }}
+          src="https://pngimg.com/d/star_wars_logo_PNG34.png"
+          alt="Star Wars logo"
+        />
+      </Link>
     </nav>
   );
 };

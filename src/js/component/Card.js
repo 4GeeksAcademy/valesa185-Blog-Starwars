@@ -27,7 +27,7 @@ const Card = ({ character }) => {
         </Link>
 
         <button type="button" className="btn btn-warning">
-          Favorite
+          ♡
         </button>
       </div>
     </div>

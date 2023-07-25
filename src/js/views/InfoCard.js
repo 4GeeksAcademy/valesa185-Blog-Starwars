@@ -42,13 +42,13 @@ const InfoCard = () => {
     <div className="card ms-4 mb-3" style={{ width: "50%", height: "50%" }}>
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={image} class="img-fluid rounded-start" alt="..." />
+          <img src={image} className="img-fluid rounded-start" alt="..." />
         </div>
         <div className="col-md-8">
           <div className="card-body">
             <h2 className="card-title">{name}</h2>
             <h4 className="card-title">Information about:</h4>
-            <p classname="card-text">
+            <p className="card-text">
               {description1} <br /> {description2} <br /> {description3} <br />
               {description4} <br />
               {description5}

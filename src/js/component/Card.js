@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCharacterContext } from "../store/CharacterContext";
 
 const Card = ({ character }) => {
   const { id, name, image, description1, description2, description3 } =
     character;
+
+  const { addToFavorites } = useCharacterContext();
+
+  const handleAddToFavorites = () => {
+    addToFavorites(name); // Add the character's name to the favorites list
+  };
 
   return (
     <div className="card" style={{ width: "15rem" }}>
@@ -19,14 +26,17 @@ const Card = ({ character }) => {
           {description1} <br /> {description2} <br /> {description3}
         </p>
 
-        {/* Uso de los parametros de la URL para pasar el ID de cada personaje */}
         <Link to={`/info/${id}`}>
           <button type="button" className="btn btn-secondary me-2">
             Learn more!
           </button>
         </Link>
 
-        <button type="button" className="btn btn-warning">
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={handleAddToFavorites}
+        >
           ♡
         </button>
       </div>

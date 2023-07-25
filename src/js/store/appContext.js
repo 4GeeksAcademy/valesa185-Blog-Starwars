@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getState from "./flux.js";
-import {
-  CharacterContext, // Correct the import to include CharacterContext
-  CharacterProvider, // Correct the import to include CharacterProvider
-} from "./CharacterContext";
-
-// ... (existing code)
+import { CharacterProvider, CharacterContext } from "./CharacterContext";
 
 const injectContext = (PassedComponent) => {
   const StoreWrapper = (props) => {
@@ -21,9 +16,7 @@ const injectContext = (PassedComponent) => {
       })
     );
 
-    useEffect(() => {
-      // ... (existing code)
-    }, []);
+    useEffect(() => {}, []);
 
     return (
       <CharacterProvider>

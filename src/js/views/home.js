@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/home.css";
-import CharacterList from "./CharacterList";
-import SpeciesList from "./SpeciesList";
+import CharacterList from "../store/CharacterList";
+import SpeciesList from "../store/SpeciesList";
 
 export const Home = () => (
   <div className=" mt-3">

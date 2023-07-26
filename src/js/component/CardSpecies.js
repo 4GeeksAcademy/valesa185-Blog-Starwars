@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCharacterContext } from "../store/CharacterContext";
+import { useCharacterContext } from "../store/DataContext";
 
 const Card = ({ character }) => {
   const { id, name, image, description1, description2, description3 } =

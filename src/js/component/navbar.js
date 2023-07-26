@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCharacterContext } from "../store/CharacterContext";
+import { useCharacterContext } from "../store/DataContext";
 
 export const Navbar = () => {
   const { favorites, removeFromFavorites } = useCharacterContext(); // Add the removeFromFavorites function from the context

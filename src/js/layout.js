@@ -5,9 +5,9 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import InfoCard from "./views/InfoCard";
-import InfoSpecies from "./views/InfoSpecies";
-import { useCharacterContext } from "./store/CharacterContext";
+import InfoCharactersCard from "./views/InfoCharactersCard";
+import InfoSpeciesCard from "./views/InfoSpeciesCard";
+import { useCharacterContext } from "./store/DataContext";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -21,8 +21,8 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<h1>Not found!</h1>} />
-            <Route path="/info/:id" element={<InfoCard />} />
-            <Route path="/info/especies/:id" element={<InfoSpecies />} />
+            <Route path="/info/:id" element={<InfoCharactersCard />} />
+            <Route path="/info/especies/:id" element={<InfoSpeciesCard />} />
           </Routes>
           <Footer />
         </ScrollToTop>

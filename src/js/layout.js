@@ -7,6 +7,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import InfoCharactersCard from "./views/InfoCharactersCard";
 import InfoSpeciesCard from "./views/InfoSpeciesCard";
+import InfoVehiclesCard from "./views/InfoVehiclesCard";
 import { useCharacterContext } from "./store/DataContext";
 
 const Layout = () => {
@@ -21,8 +22,12 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<h1>Not found!</h1>} />
-            <Route path="/info/:id" element={<InfoCharactersCard />} />
+            <Route
+              path="/info/character/:id"
+              element={<InfoCharactersCard />}
+            />
             <Route path="/info/especies/:id" element={<InfoSpeciesCard />} />
+            <Route path="/info/vehicles/:id" element={<InfoVehiclesCard />} />
           </Routes>
           <Footer />
         </ScrollToTop>

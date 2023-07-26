@@ -28,7 +28,7 @@ const Card = ({ character }) => {
           {description1} <br /> {description2} <br /> {description3}
         </p>
 
-        <Link to={`/info/${id}`}>
+        <Link to={`/info/character/${id}`}>
           <button type="button" className="btn btn-secondary me-2">
             Learn more!
           </button>

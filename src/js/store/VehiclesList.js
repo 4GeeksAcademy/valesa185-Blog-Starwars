@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import CardSpecies from "../component/CardSpecies";
+import CardVehicles from "../component/CardVehicles";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch("https://www.swapi.tech/api/species/")
+    fetch("https://www.swapi.tech/api/vehicles/")
       .then((response) => response.json())
       .then((data) => {
         const characterURLs = data.results.map((result) => result.url);
 
-        // Nuevo fetch con todas las URLs de las especies
+        // Nuevo fetch con todas las URLs de los vehiculos
         Promise.all(
           characterURLs.map((url) =>
             fetch(url).then((response) => response.json())
@@ -21,10 +21,10 @@ const CharacterList = () => {
             const characterDetails = charactersData.map((data) => ({
               id: data.result.uid,
               name: data.result.properties.name,
-              image: `https://starwars-visualguide.com/assets/img/species/${data.result.uid}.jpg`,
-              description1: `Classification: ${data.result.properties.classification}`,
-              description2: `Designation: ${data.result.properties.designation}`,
-              description3: `Height: ${data.result.properties.average_height}`,
+              image: `https://starwars-visualguide.com/assets/img/vehicles/${data.result.uid}.jpg`,
+              description1: `Model: ${data.result.properties.model}`,
+              description2: `Manufacturer: ${data.result.properties.manufacturer}`,
+              description3: `Passengers: ${data.result.properties.passengers}`,
             }));
 
             setCharacters(characterDetails);
@@ -37,7 +37,7 @@ const CharacterList = () => {
   return (
     <div className="characterList">
       {characters.map((character) => (
-        <CardSpecies key={character.id} character={character} />
+        <CardVehicles key={character.id} character={character} />
       ))}
     </div>
   );

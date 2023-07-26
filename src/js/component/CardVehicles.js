@@ -8,10 +8,10 @@ const Card = ({ character }) => {
 
   const { addToFavorites, favorites } = useCharacterContext();
 
-  const isFavorite = favorites.includes(name); // Check if the specie is in the favorites list
+  const isFavorite = favorites.includes(name); // Check if the vehicle is in the favorites list
 
   const handleAddToFavorites = () => {
-    addToFavorites(name); // Add or remove the specie's name to/from the favorites list
+    addToFavorites(name); // Add or remove the vehicle's name to/from the favorites list
   };
 
   return (
@@ -28,7 +28,7 @@ const Card = ({ character }) => {
           {description1} <br /> {description2} <br /> {description3}
         </p>
 
-        <Link to={`/info/especies/${id}`}>
+        <Link to={`/info/vehicles/${id}`}>
           <button type="button" className="btn btn-secondary me-2">
             Learn more!
           </button>

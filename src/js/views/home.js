@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import CharacterList from "../store/CharacterList";
 import SpeciesList from "../store/SpeciesList";
+import VehiclesList from "../store/VehiclesList";
 
 export const Home = () => (
   <div className=" mt-3">
@@ -10,6 +11,8 @@ export const Home = () => (
       <CharacterList />
       <h1 className="ms-4">Species</h1>
       <SpeciesList />
+      <h1 className="ms-4">Vehicles</h1>
+      <VehiclesList />
     </div>
   </div>
 );

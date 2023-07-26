@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import InfoCard from "./views/InfoCard";
+import InfoSpecies from "./views/InfoSpecies";
 import { useCharacterContext } from "./store/CharacterContext";
 
 const Layout = () => {
@@ -21,6 +22,7 @@ const Layout = () => {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<h1>Not found!</h1>} />
             <Route path="/info/:id" element={<InfoCard />} />
+            <Route path="/info/especies/:id" element={<InfoSpecies />} />
           </Routes>
           <Footer />
         </ScrollToTop>
